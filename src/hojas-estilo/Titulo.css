@@ -1,0 +1,11 @@
+.titulo-container {
+  background-color: aliceblue;
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h1 {
+  font-size: 60px;
+  font-weight: bold;
+}
