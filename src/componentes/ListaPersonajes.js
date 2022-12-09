@@ -32,7 +32,6 @@ export default function ListaPersonajes() {
           setFiltered={setFiltered}
           setGenero={setGenero}
           genero={genero}
-          filtered={filtered}
         />
       </motion.div>
       {filtered.map((personaje) => {

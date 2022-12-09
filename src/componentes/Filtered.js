@@ -1,11 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import {
+  FcBusinesswoman,
+  FcBusinessman,
+  FcConferenceCall,
+} from "react-icons/fc";
+import Button from "./StyledButton";
+import "../App.css";
+
 export default function Filtered({
   personajes,
-  setPersonajes,
   setFiltered,
   setGenero,
   genero,
-  filtered,
 }) {
   useEffect(() => {
     if (genero === "Todos") {
@@ -17,11 +23,29 @@ export default function Filtered({
     );
     setFiltered(filtered);
   }, [genero]);
+
   return (
     <div className="boton-filtrar">
-      <button onClick={() => setGenero("Todos")}>Todos</button>
-      <button onClick={() => setGenero("Male")}>Male</button>
-      <button onClick={() => setGenero("Female")}>Female</button>
+      <button
+        className={genero === "Todos" ? "clickTodos" : "normal"}
+        onClick={() => setGenero("Todos")}
+      >
+        <FcConferenceCall />
+      </button>
+      <button
+        className={genero === "Female" ? "clickFemale" : ""}
+        onClick={() => setGenero("Female")}
+      >
+        <FcBusinesswoman />
+      </button>
+      <button
+        className={genero === "Male" ? "clickMale" : "normal"}
+        onClick={() => setGenero("Male")}
+      >
+        <FcBusinessman />
+      </button>
+
+      <Button />
     </div>
   );
 }

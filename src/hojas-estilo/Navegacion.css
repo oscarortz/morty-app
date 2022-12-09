@@ -17,3 +17,6 @@ button {
   height: 30px;
   font-size: 20px;
 }
+.boton-nav {
+  min-width: 135px;
+}

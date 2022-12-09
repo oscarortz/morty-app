@@ -7,7 +7,7 @@ export default function Navegacion() {
       <a href="">Docs</a>
       <a href="">About</a>
 
-      <button>SUPORT US</button>
+      <button className="boton-nav">SUPORT US</button>
     </div>
   );
 }

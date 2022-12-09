@@ -28,6 +28,10 @@ img {
 
   align-items: center;
 }
+.boton-filtrar {
+  display: flex;
+  justify-content: space-evenly;
+}
 
 .verde {
   margin: 10px;
@@ -55,4 +59,21 @@ img {
 }
 .botones-filtro {
   width: 100%;
+}
+.clickTodos {
+  background-color: rgb(210, 207, 16);
+  width: 50px;
+  cursor: pointer;
+}
+.clickMale {
+  background-color: rgb(210, 207, 16);
+  width: 50px;
+  cursor: pointer;
+}
+.clickFemale {
+  background-color: rgb(210, 207, 16);
+  width: 50px;
+}
+button {
+  cursor: pointer;
 }
