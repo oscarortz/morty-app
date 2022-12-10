@@ -1,5 +1,12 @@
 import React from "react";
 import "../App.css";
+import { FcBusinesswoman, FcBusinessman } from "react-icons/fc";
+
+const iconosGenero = {
+  male: <FcBusinessman />,
+  female: <FcBusinesswoman />,
+};
+
 export default function Personaje({ personaje }) {
   return (
     <div className="tarjeta-container">
@@ -24,7 +31,12 @@ export default function Personaje({ personaje }) {
         </div>
         <p> Last know location</p>
         <h3>{personaje.location.name}</h3>
-        <h3>{personaje.gender}</h3>
+        <h4>Genero:</h4>
+        <h3>
+          {personaje.gender === "Male"
+            ? iconosGenero.male
+            : iconosGenero.female}
+        </h3>
       </div>
     </div>
   );
