@@ -9,7 +9,10 @@ export default function ListaPersonajes() {
   const [filtered, setFiltered] = useState([]);
   const [genero, setGenero] = useState("");
 
-  const urlInicial = "https://rickandmortyapi.com/api/character";
+  const userId = Math.floor(Math.random() * 10) + 1;
+
+  const urlInicial =
+    "https://rickandmortyapi.com/api/character/?page=" + userId;
 
   useEffect(() => {
     fetchData();
