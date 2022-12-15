@@ -1,5 +1,8 @@
 body {
-  background-color: bisque;
+  background-color: rgb(68, 67, 64);
+}
+h2 {
+  font-size: 18px;
 }
 .tarjetas-container {
   display: flex;
@@ -17,15 +20,23 @@ body {
   min-width: 650px;
 }
 .info-container {
-  margin-left: 30px;
+  margin-left: 15px;
+  margin-right: 10px;
   min-width: 300px;
+  max-width: 325px;
+  min-height: 300px;
+  max-height: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-around;
 }
 img {
   border-radius: 1rem 0 0 1rem;
 }
 .punto-container {
   display: flex;
-
+  height: 20px;
   align-items: center;
 }
 .boton-filtrar {
@@ -74,4 +85,13 @@ img {
 }
 button {
   cursor: pointer;
+}
+.isActive {
+  background-color: rgb(44, 105, 229);
+}
+.paginacion-contenedor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
 }
