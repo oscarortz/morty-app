@@ -14,7 +14,6 @@ function DetalleDelPersonaje() {
     axios
       .get(`https://rickandmortyapi.com/api/character/${id}`)
       .then((res) => {
-        console.log(res.data);
         setPersonaje(res.data);
       })
       .catch((err) => {
@@ -23,11 +22,20 @@ function DetalleDelPersonaje() {
   };
   return (
     <div>
-      <img src={personaje.image} alt={personaje.name} />
-      <p>{personaje.name}</p>
-      <p>{personaje.status}</p>
-      <p>{personaje.species}</p>
-      <p>{personaje.gender}</p>
+      {personaje.length === 0 ? (
+        "CARGANDO..."
+      ) : (
+        <div>
+          <img src={personaje.image} alt={personaje.name} />
+          <p>{personaje.name}</p>
+          <p>{personaje.status}</p>
+          <p>{personaje.species}</p>
+          <p>{personaje.created}</p>
+          <p>{personaje.gender}</p>
+          <p>{personaje.episode}</p>
+          <p>{personaje.id}</p>
+        </div>
+      )}
     </div>
   );
 }

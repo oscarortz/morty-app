@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import PersonajeLocacion from "./PersonajeLocacion";
 
-const URL = "https://rickandmortyapi.com/api/location";
+const urlInitial = "https://rickandmortyapi.com/api/location";
 
 export default function PersonajesLocacion() {
   const [locations, setLocations] = useState([]);
-  function locationFech() {
+  function locationFech(url) {
     axios
-      .get(URL)
+      .get(url)
       .then((res) => {
         console.log(res);
         setLocations(res.data.results);
@@ -19,7 +19,7 @@ export default function PersonajesLocacion() {
   }
 
   useEffect(() => {
-    locationFech();
+    locationFech(urlInitial);
   }, []);
 
   return (

@@ -1,9 +1,7 @@
 import React from "react";
 import "../App.css";
 import { FcBusinesswoman, FcBusinessman } from "react-icons/fc";
-import { useParams, Link } from "react-router-dom";
-
-const { id } = useParams;
+import { Link } from "react-router-dom";
 
 const iconosGenero = {
   male: <FcBusinessman />,
@@ -11,7 +9,6 @@ const iconosGenero = {
 };
 
 export default function Personaje({ personaje }) {
-  const { id } = useParams;
   return (
     <div className="tarjeta-container">
       <Link to={`/detallePersonaje/${personaje.id}`}>
@@ -44,6 +41,10 @@ export default function Personaje({ personaje }) {
             ? iconosGenero.male
             : iconosGenero.female}
         </h3>
+        <h3>Location</h3>
+        <Link to={`/locationDetail/${personaje.location.url}`}>
+          <p>{personaje.location.name}</p>
+        </Link>
       </div>
     </div>
   );

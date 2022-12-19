@@ -7,6 +7,7 @@ import NavBar from "./componentes/NavBar";
 import CharacterLocation from "./paginas/CharacterLocation";
 import Episodios from "./paginas/Episodios";
 import DetalleDelPersonaje from "./paginas/DetalleDelPersonaje";
+import LocationDetail from "./paginas/LocationDetail";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             path="/detallePersonaje/:id"
             element={<DetalleDelPersonaje />}
           />
+          <Route path="/locationDetail/:id" element={<LocationDetail />} />
           <Route path="episodios" element={<Episodios />} />
         </Routes>
       </BrowserRouter>
