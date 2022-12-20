@@ -1,9 +1,7 @@
 body {
   background-color: rgb(68, 67, 64);
 }
-h2 {
-  font-size: 18px;
-}
+
 .tarjetas-container {
   display: flex;
   flex-wrap: wrap;
@@ -21,7 +19,7 @@ h2 {
 }
 .info-container {
   margin-left: 15px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   margin-right: 10px;
   min-width: 300px;
   max-width: 325px;
@@ -32,10 +30,33 @@ h2 {
   justify-content: center;
   align-content: space-around;
 }
+.div-nombre {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  margin: 7px;
+}
+.div-last-now {
+  height: 20px;
+}
+.div-location-name {
+  height: 15px;
+  margin: 7px;
+}
+.div-genero {
+  height: 20px;
+  margin: 7px;
+}
+h2,
+p,
+h3 {
+  height: 14px;
+}
 img {
   border-radius: 1rem 0 0 1rem;
 }
 .punto-container {
+  margin: 7px;
   display: flex;
   height: 20px;
   align-items: center;

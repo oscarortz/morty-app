@@ -13,7 +13,7 @@ export default function Episodes() {
     axios
       .get(url)
       .then((resp) => {
-        console.log(resp);
+        //console.log(resp);
         setEpisodios(resp.data.results);
         setInfo(resp.data.info);
       })

@@ -8,6 +8,7 @@ import CharacterLocation from "./paginas/CharacterLocation";
 import Episodios from "./paginas/Episodios";
 import DetalleDelPersonaje from "./paginas/DetalleDelPersonaje";
 import LocationDetail from "./paginas/LocationDetail";
+import EpisodiosDelPersonaje from "./paginas/EpisodiosDelPersonaje";
 
 function App() {
   return (
@@ -25,6 +26,10 @@ function App() {
           />
           <Route path="/locationDetail/:id" element={<LocationDetail />} />
           <Route path="episodios" element={<Episodios />} />
+          <Route
+            path="/episodiosDelPersonaje/:id"
+            element={<EpisodiosDelPersonaje />}
+          />
         </Routes>
       </BrowserRouter>
     </div>

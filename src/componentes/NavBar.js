@@ -1,12 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function NavBar() {
   return (
     <div>
-      <Link to="/">Home</Link>
-      <Link to="location">Character Location</Link>
-      <Link to="episodios">episodes</Link>
+      <NavLink to="/">Home</NavLink>
+      <NavLink to="location">Character Location</NavLink>
+      <NavLink to="episodios">episodes</NavLink>
     </div>
   );
 }
