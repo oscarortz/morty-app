@@ -1,44 +1,62 @@
 import React, { useState, useEffect } from "react";
-import { Await, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const EpisodiosDelPersonaje = () => {
   const [episodios, setEpisodios] = useState([]);
 
   const { id } = useParams();
-  console.log(id);
+  //console.log(id);
 
   const url = `https://rickandmortyapi.com/api/episode/${id}`;
-
-  useEffect(() => {
-    fetchEpisodios(url);
-  }, []);
 
   const fetchEpisodios = async (url) => {
     await axios
       .get(url)
       .then((res) => {
-        console.log(res.data);
         setEpisodios(res.data);
+        console.log(episodios);
       })
       .catch((err) => {
         console.log(err);
       });
   };
+  useEffect(() => {
+    fetchEpisodios(url);
+  }, []);
 
+  console.log(typeof episodios);
+  console.log(Array.isArray(episodios));
   return (
-    <div>
-      {episodios.map((item) => {
-        return (
-          <div key={item.id}>
-            <p>{item.id}</p>
-            <p>{item.name}</p>
-            <p>{item.air_date}</p>
-            <p>{item.episode}</p>
-          </div>
-        );
-      })}
-    </div>
+    <>
+      {Array.isArray(episodios) === false ? (
+        <div>
+          <p>ID:</p>
+          <p>{episodios.id}</p>
+          <p>NAME:</p>
+          <p>{episodios.name}</p>
+          <p>AIR DATE:</p>
+          <p>{episodios.air_date}</p>
+          <p>{episodios.episode}</p>
+          <p>EPISODE:</p>
+        </div>
+      ) : (
+        episodios.map((item, index) => {
+          return (
+            <div key={index}>
+              <p>ID:</p>
+              <p>{item["id"]}</p>
+              <p>NAME:</p>
+              <p>{item["name"]}</p>
+              <p>AIR DATE:</p>
+              <p>{item["air_date"]}</p>
+              <p>EPISODE:</p>
+              <p>{item["episode"]}</p>
+            </div>
+          );
+        })
+      )}
+    </>
   );
 };
 
