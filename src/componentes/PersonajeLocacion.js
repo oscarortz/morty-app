@@ -4,12 +4,13 @@ import "../hojas-estilo/PersonajeLocacion.css";
 function PersonajeLocacion({ item }) {
   return (
     <div className="contenedor-locacion">
-      <p>Name</p>
-      <h2>{item.name}</h2>
-      <p>Type</p>
-      <h2>{item.type}</h2>
-      <p>Dimension</p>
-      <h2>{item.dimension}</h2>
+      <div className="div-name-location">
+        <h2>Name location: "{item.name}"</h2>
+      </div>
+
+      <h2>Type location: "{item.type}"</h2>
+
+      <h2>Dimension: "{item.dimension}"</h2>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import PersonajeLocacion from "./PersonajeLocacion";
+import "../hojas-estilo/PersonajeLocacion.css";
 
 const urlInitial = "https://rickandmortyapi.com/api/location";
 
@@ -33,7 +34,7 @@ export default function PersonajesLocacion() {
 
   return (
     <div>
-      <div>
+      <div className="div-botones-location">
         <button onClick={onPrev} disabled={info.prev === null ? true : false}>
           prev
         </button>
@@ -42,12 +43,12 @@ export default function PersonajesLocacion() {
         </button>
       </div>
 
-      <div>
+      <div className="div-location-card">
         {locations.map((item, index) => (
           <div key={index}>{<PersonajeLocacion item={item} />}</div>
         ))}
       </div>
-      <div>
+      <div className="div-botones-location">
         <button onClick={onPrev} disabled={info.prev === null ? true : false}>
           prev
         </button>

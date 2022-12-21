@@ -45,27 +45,30 @@ export default function Personaje({ personaje }) {
         <div className="div-last-now">
           <p> Last know location</p>
         </div>
-        <div className="div-location-name">
-          <h3>{personaje.location.name}</h3>
+        <div className="div-location-name-link">
+          <Link to={`locationDetail/${urlFragment}`}>
+            <p>{personaje.location.name}</p>
+          </Link>
         </div>
         <div className="div-genero">
           <h4>Genero:</h4>
         </div>
+        <div className="icono-genero">
+          <p>
+            {personaje.gender === "Male"
+              ? iconosGenero.male
+              : iconosGenero.female}
+          </p>
+        </div>
 
-        <p>
-          {personaje.gender === "Male"
-            ? iconosGenero.male
-            : iconosGenero.female}
-        </p>
-        <h3>Location</h3>
-        <Link to={`locationDetail/${urlFragment}`}>
-          <p>{personaje.location.name}</p>
-        </Link>
-        <Link to={`/episodiosDelPersonaje/${episodiosUnidos}`}>
-          <p>Episodios donde aparece</p>
-        </Link>
-
-        <p>{episodiosUnidos}</p>
+        <div className="div-episodios">
+          <Link to={`/episodiosDelPersonaje/${episodiosUnidos}`}>
+            <p>Episodios donde aparece</p>
+          </Link>
+        </div>
+        <div className="episodios-numero">
+          <p>{episodiosUnidos}</p>
+        </div>
       </div>
     </div>
   );

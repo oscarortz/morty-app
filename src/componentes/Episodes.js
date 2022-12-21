@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Episodio from "./Episodio";
 import PaginacionEpisodes from "./PaginacionEpisodes";
+import "../hojas-estilo/episodes.css";
 
 const initialUrl = "https://rickandmortyapi.com/api/episode";
 
@@ -39,11 +40,14 @@ export default function Episodes() {
         prev={info.prev}
         next={info.next}
       />
-      {episodios.map((item, index) => (
-        <div key={index}>
-          <Episodio item={item} />
-        </div>
-      ))}
+      <div className="div-container-episodes">
+        {episodios.map((item, index) => (
+          <div key={index} className="episodios-card">
+            <Episodio item={item} />
+          </div>
+        ))}
+      </div>
+
       <PaginacionEpisodes
         onPrev={onPrev}
         onNext={onNext}
