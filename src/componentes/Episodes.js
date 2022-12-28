@@ -36,31 +36,27 @@ export default function Episodes() {
 
   return (
     <div>
-      {auth ? (
-        <h1>Login</h1>
-      ) : (
-        <>
-          <PaginacionEpisodes
-            onPrev={onPrev}
-            onNext={onNext}
-            prev={info.prev}
-            next={info.next}
-          />
-          <div className="div-container-episodes">
-            {episodios.map((item, index) => (
-              <div key={index} className="episodios-card">
-                <Episodio item={item} />
-              </div>
-            ))}
-          </div>
-          <PaginacionEpisodes
-            onPrev={onPrev}
-            onNext={onNext}
-            prev={info.prev}
-            next={info.next}
-          />
-        </>
-      )}
+      <>
+        <PaginacionEpisodes
+          onPrev={onPrev}
+          onNext={onNext}
+          prev={info.prev}
+          next={info.next}
+        />
+        <div className="div-container-episodes">
+          {episodios.map((item, index) => (
+            <div key={index} className="episodios-card">
+              <Episodio item={item} />
+            </div>
+          ))}
+        </div>
+        <PaginacionEpisodes
+          onPrev={onPrev}
+          onNext={onNext}
+          prev={info.prev}
+          next={info.next}
+        />
+      </>
     </div>
   );
 }

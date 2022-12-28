@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import Navegacion from "./componentes/Navegacion";
 import Titulo from "./componentes/Titulo";
 import ListaPersonajes from "./componentes/ListaPersonajes";
@@ -11,6 +12,8 @@ import LocationDetail from "./paginas/LocationDetail";
 import EpisodiosDelPersonaje from "./paginas/EpisodiosDelPersonaje";
 import Auth from "./paginas/Auth";
 import { AuthProvider } from "./contexto/AuthContext";
+import { AutenticationPage } from "./paginas/AutenticationPage";
+import { ProtectedPages } from "./componentes/ProtectedPages";
 
 function App() {
   return (
@@ -20,19 +23,23 @@ function App() {
         <Titulo />
         <BrowserRouter>
           <NavBar />
+          <Auth />
           <Routes>
-            <Route path="/" element={<Auth />} />
-            <Route path="/ListaDePersonajes" element={<ListaPersonajes />} />
-            <Route path="/location" element={<CharacterLocation />} />
+            <Route path="/" element={<AutenticationPage />} />
+            <Route element={<ProtectedPages />}>
+              <Route path="/listaDePersonajes" element={<ListaPersonajes />} />
+              <Route path="/location" element={<CharacterLocation />} />
+              <Route path="episodios" element={<Episodios />} />
+            </Route>
             <Route
               path="/detallePersonaje/:id"
               element={<DetalleDelPersonaje />}
             />
             <Route path="/locationDetail/:id" element={<LocationDetail />} />
-            <Route path="episodios" element={<Episodios />} />
+
             <Route
-              path="/episodiosDelPersonaje/:id"
               element={<EpisodiosDelPersonaje />}
+              path="/episodiosDelPersonaje/:id"
             />
           </Routes>
         </BrowserRouter>

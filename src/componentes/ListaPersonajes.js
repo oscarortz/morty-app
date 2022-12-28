@@ -34,49 +34,45 @@ export default function ListaPersonajes() {
   }
 
   //console.log(personajes);
-  console.log(auth);
+  //console.log(auth);
   return (
     <>
-      {auth ? (
-        <h1>Login</h1>
-      ) : (
-        <>
-          <Paginacion
-            personajesPorPagina={personajesPorPagina}
-            paginaActual={paginaActual}
-            setPaginaActual={setPaginaActual}
-            totalPersonajes={totalPersonajes}
-          />
-          <motion.div className="tarjetas-container">
-            <motion.div className="botones-filtro">
-              <Filtered
-                personajes={personajes}
-                setFiltered={setFiltered}
-                setGenero={setGenero}
-                genero={genero}
-              />
-            </motion.div>
-
-            {filtered.lenght === 0
-              ? "CARGANDO"
-              : filtered
-                  .map((personaje) => {
-                    return (
-                      <motion.div key={personaje.id}>
-                        <Personaje personaje={personaje} />
-                      </motion.div>
-                    );
-                  })
-                  .slice(firstIndex, lastIndex)}
+      <>
+        <Paginacion
+          personajesPorPagina={personajesPorPagina}
+          paginaActual={paginaActual}
+          setPaginaActual={setPaginaActual}
+          totalPersonajes={totalPersonajes}
+        />
+        <motion.div className="tarjetas-container">
+          <motion.div className="botones-filtro">
+            <Filtered
+              personajes={personajes}
+              setFiltered={setFiltered}
+              setGenero={setGenero}
+              genero={genero}
+            />
           </motion.div>
-          <Paginacion
-            personajesPorPagina={personajesPorPagina}
-            paginaActual={paginaActual}
-            setPaginaActual={setPaginaActual}
-            totalPersonajes={totalPersonajes}
-          />
-        </>
-      )}
+
+          {filtered.lenght === 0
+            ? "CARGANDO"
+            : filtered
+                .map((personaje) => {
+                  return (
+                    <motion.div key={personaje.id}>
+                      <Personaje personaje={personaje} />
+                    </motion.div>
+                  );
+                })
+                .slice(firstIndex, lastIndex)}
+        </motion.div>
+        <Paginacion
+          personajesPorPagina={personajesPorPagina}
+          paginaActual={paginaActual}
+          setPaginaActual={setPaginaActual}
+          totalPersonajes={totalPersonajes}
+        />
+      </>
     </>
   );
 }

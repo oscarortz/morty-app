@@ -1,15 +1,16 @@
 import React, { useContext } from "react";
-import { Link, Route } from "react-router-dom";
 import AuthContext from "../contexto/AuthContext";
 
 const Auth = () => {
-  const { auth, handleAuth } = useContext(AuthContext);
-
+  const { auth, login, logout } = useContext(AuthContext);
+  //console.log(auth);
   return (
     <div>
-      <Link to="/">
-        <button onClick={handleAuth}>{auth ? "Login" : "Logout"}</button>
-      </Link>
+      {auth ? (
+        <button onClick={logout}>Logout</button>
+      ) : (
+        <button onClick={login}>Login</button>
+      )}
     </div>
   );
 };

@@ -12,7 +12,7 @@ export default function PersonajesLocacion() {
     axios
       .get(url)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setLocations(res.data.results);
         setInfo(res.data.info);
       })
@@ -20,7 +20,7 @@ export default function PersonajesLocacion() {
         console.log(err);
       });
   }
-  console.log(info);
+  //console.log(info);
 
   useEffect(() => {
     locationFech(urlInitial);
