@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../App.css";
 import { FcBusinesswoman, FcBusinessman } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import AuthContext from "../contexto/AuthContext";
 
 const iconosGenero = {
   male: <FcBusinessman />,
@@ -9,12 +10,14 @@ const iconosGenero = {
 };
 
 export default function Personaje({ personaje }) {
+  const { auth } = useContext(AuthContext);
+
   let url = personaje.location.url;
   let newUrl = url.split("/");
   let urlFragment = newUrl.slice(5, 6);
   let episodios = personaje.episode.map((item) => item.slice(40, 43));
   let episodiosUnidos = episodios.join(", ");
-  console.log(episodios);
+  //console.log(episodios);
   return (
     <div className="tarjeta-container">
       <Link to={`/detallePersonaje/${personaje.id}`}>
@@ -46,7 +49,7 @@ export default function Personaje({ personaje }) {
           <p> Last know location</p>
         </div>
         <div className="div-location-name-link">
-          <Link to={`locationDetail/${urlFragment}`}>
+          <Link to={`/locationDetail/${urlFragment}`}>
             <p>{personaje.location.name}</p>
           </Link>
         </div>

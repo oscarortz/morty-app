@@ -23,7 +23,7 @@ const EpisodiosDelPersonaje = () => {
   };
   useEffect(() => {
     fetchEpisodios(url);
-  }, []);
+  }, [url]);
 
   console.log(typeof episodios);
   console.log(Array.isArray(episodios));

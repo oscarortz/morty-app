@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import Episodio from "./Episodio";
 import PaginacionEpisodes from "./PaginacionEpisodes";
 import "../hojas-estilo/episodes.css";
+import AuthContext from "../contexto/AuthContext";
 
 const initialUrl = "https://rickandmortyapi.com/api/episode";
 
 export default function Episodes() {
+  const { auth } = useContext(AuthContext);
   const [episodios, setEpisodios] = useState([]);
   const [info, setInfo] = useState({});
 
@@ -34,26 +36,31 @@ export default function Episodes() {
 
   return (
     <div>
-      <PaginacionEpisodes
-        onPrev={onPrev}
-        onNext={onNext}
-        prev={info.prev}
-        next={info.next}
-      />
-      <div className="div-container-episodes">
-        {episodios.map((item, index) => (
-          <div key={index} className="episodios-card">
-            <Episodio item={item} />
+      {auth ? (
+        <h1>Login</h1>
+      ) : (
+        <>
+          <PaginacionEpisodes
+            onPrev={onPrev}
+            onNext={onNext}
+            prev={info.prev}
+            next={info.next}
+          />
+          <div className="div-container-episodes">
+            {episodios.map((item, index) => (
+              <div key={index} className="episodios-card">
+                <Episodio item={item} />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-
-      <PaginacionEpisodes
-        onPrev={onPrev}
-        onNext={onNext}
-        prev={info.prev}
-        next={info.next}
-      />
+          <PaginacionEpisodes
+            onPrev={onPrev}
+            onNext={onNext}
+            prev={info.prev}
+            next={info.next}
+          />
+        </>
+      )}
     </div>
   );
 }

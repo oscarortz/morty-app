@@ -8,7 +8,7 @@ function DetalleDelPersonaje() {
 
   useEffect(() => {
     getPersonaje();
-  }, []);
+  }, [id]);
 
   const getPersonaje = () => {
     axios

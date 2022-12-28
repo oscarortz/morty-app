@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams, useMatch } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function LocationDetail() {
   const [location, setLocation] = useState([]);
@@ -10,7 +10,7 @@ function LocationDetail() {
   const url = `https://rickandmortyapi.com/api/location/${id}`;
   useEffect(() => {
     fetchLocationDetail(url);
-  }, []);
+  }, [url]);
   console.log(id);
   const fetchLocationDetail = async (url) => {
     await axios
