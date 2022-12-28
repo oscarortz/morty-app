@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import Navegacion from "./componentes/Navegacion";
 import Titulo from "./componentes/Titulo";
 import ListaPersonajes from "./componentes/ListaPersonajes";
@@ -25,22 +24,22 @@ function App() {
           <NavBar />
           <Auth />
           <Routes>
-            <Route path="/" element={<AutenticationPage />} />
+            <Route index element={<AutenticationPage />} />
             <Route element={<ProtectedPages />}>
               <Route path="/listaDePersonajes" element={<ListaPersonajes />} />
               <Route path="/location" element={<CharacterLocation />} />
               <Route path="episodios" element={<Episodios />} />
-            </Route>
-            <Route
-              path="/detallePersonaje/:id"
-              element={<DetalleDelPersonaje />}
-            />
-            <Route path="/locationDetail/:id" element={<LocationDetail />} />
+              <Route
+                path="/detallePersonaje/:id"
+                element={<DetalleDelPersonaje />}
+              />
+              <Route path="/locationDetail/:id" element={<LocationDetail />} />
 
-            <Route
-              element={<EpisodiosDelPersonaje />}
-              path="/episodiosDelPersonaje/:id"
-            />
+              <Route
+                element={<EpisodiosDelPersonaje />}
+                path="/episodiosDelPersonaje/:id"
+              />
+            </Route>
           </Routes>
         </BrowserRouter>
       </AuthProvider>
