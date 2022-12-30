@@ -1,13 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import Personaje from "./Personaje";
 import Filtered from "./Filtered";
 import "../App.css";
 import { motion } from "framer-motion";
 import Paginacion from "./Paginacion";
-import AuthContext from "../contexto/AuthContext";
 
 export default function ListaPersonajes() {
-  const { auth } = useContext(AuthContext);
   const [personajes, setPersonajes] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const [genero, setGenero] = useState("");

@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Navigate, useParams } from "react-router-dom";
 import axios from "axios";
+import AuthContext from "../contexto/AuthContext";
 
 function DetalleDelPersonaje() {
   const [personaje, setPersonaje] = useState({});
   const { id } = useParams();
+  const { auth } = useContext(AuthContext);
 
   useEffect(() => {
     getPersonaje();
-  }, [id]);
+  }, []);
 
   const getPersonaje = () => {
     axios
@@ -22,19 +24,25 @@ function DetalleDelPersonaje() {
   };
   return (
     <div>
-      {personaje.length === 0 ? (
-        "CARGANDO..."
+      {!auth ? (
+        <Navigate to="/" />
       ) : (
-        <div>
-          <img src={personaje.image} alt={personaje.name} />
-          <p>{personaje.name}</p>
-          <p>{personaje.status}</p>
-          <p>{personaje.species}</p>
-          <p>{personaje.created}</p>
-          <p>{personaje.gender}</p>
-          <p>{personaje.episode}</p>
-          <p>{personaje.id}</p>
-        </div>
+        <>
+          {personaje.length === 0 ? (
+            "CARGANDO..."
+          ) : (
+            <div>
+              <img src={personaje.image} alt={personaje.name} />
+              <p>{personaje.name}</p>
+              <p>{personaje.status}</p>
+              <p>{personaje.species}</p>
+              <p>{personaje.created}</p>
+              <p>{personaje.gender}</p>
+              <p>{personaje.episode}</p>
+              <p>{personaje.id}</p>
+            </div>
+          )}
+        </>
       )}
     </div>
   );

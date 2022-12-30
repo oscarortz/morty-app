@@ -5,9 +5,9 @@ import "../hojas-estilo/NavBar.css";
 function NavBar() {
   return (
     <div className="nav-bar">
-      <NavLink to="/">Login</NavLink>
-      <NavLink to="/listaDePersonajes">Character List</NavLink>
-      <NavLink to="location">Character Location</NavLink>
+      <NavLink to="/login">Login</NavLink>
+      <NavLink to="/">Characters</NavLink>
+      <NavLink to="location">Locations</NavLink>
       <NavLink to="episodios">episodes</NavLink>
     </div>
   );

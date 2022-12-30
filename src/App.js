@@ -11,8 +11,8 @@ import LocationDetail from "./paginas/LocationDetail";
 import EpisodiosDelPersonaje from "./paginas/EpisodiosDelPersonaje";
 import Auth from "./paginas/Auth";
 import { AuthProvider } from "./contexto/AuthContext";
-import { AutenticationPage } from "./paginas/AutenticationPage";
-import { ProtectedPages } from "./componentes/ProtectedPages";
+import { PublicPage } from "./paginas/PublicPage";
+import { PrivatePages } from "./componentes/PrivatePages";
 
 function App() {
   return (
@@ -24,9 +24,9 @@ function App() {
           <NavBar />
           <Auth />
           <Routes>
-            <Route index element={<AutenticationPage />} />
-            <Route element={<ProtectedPages />}>
-              <Route path="/listaDePersonajes" element={<ListaPersonajes />} />
+            <Route path="/" element={<ListaPersonajes />} />
+            <Route path="/login" element={<PublicPage />} />
+            <Route element={<PrivatePages />}>
               <Route path="/location" element={<CharacterLocation />} />
               <Route path="episodios" element={<Episodios />} />
               <Route

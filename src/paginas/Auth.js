@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Navigate } from "react-router-dom";
 import AuthContext from "../contexto/AuthContext";
 
 const Auth = () => {
@@ -6,11 +7,12 @@ const Auth = () => {
   //console.log(auth);
   return (
     <div>
-      {auth ? (
-        <button onClick={logout}>Logout</button>
-      ) : (
-        <button onClick={login}>Login</button>
-      )}
+      <button onClick={login} disabled={!!auth}>
+        Login
+      </button>
+      <button onClick={logout} disabled={!auth}>
+        Logout
+      </button>
     </div>
   );
 };
